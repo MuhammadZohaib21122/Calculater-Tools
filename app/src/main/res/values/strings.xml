@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Tools</string>
+    <string name="name">Muhammad Zohaib</string>
+    <string name="txt_age">19</string>
+    <string name="num1">Enter First Number : </string>
+    <string name="num2">Enter Second Number : </string>
+    <string name="resultis">Result is : </string>
+    <string name="txt_show_my_name">Show My Name</string>
+    <string name="txt_show_my_age">Show My Age</string>
+    <string name="txt_add_2_numbers">Add 2 Numbers</string>
+    <string name="tex_multiply">Multiply</string>
+    <string name="txt_add">+</string>
+    <string name="txt_multiplay">*</string>
+    <string name="txt_substract">-</string>
+    <string name="tex_enter_dollar">Enter Dollar:</string>
+    <string name="tex_convert_to_pkr">Convert To PKR</string>
+    <string name="tex_pkr_is">PKR is</string>
+    <string name="txe_pkr_is">PKR is:</string>
+    <string name="txe_calculator">Calculator</string>
+    <string name="tex_pound_to_pkr">Pound To PKR</string>
+    <string name="tex_dollar_to_pkr">Dollar To PKR</string>
+    <string name="txe_enter_pound">Enter Pound</string>
+</resources>
