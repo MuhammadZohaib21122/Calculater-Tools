@@ -6,12 +6,12 @@ import androidx.camera.core.ImageProxy;
 
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.ChecksumException;
-import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.PlanarYUVLuminanceSource;
 import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.multi.qrcode.QRCodeMultiReader;
+import com.google.zxing.MultiFormatReader;
 
 import java.nio.ByteBuffer;
 
@@ -21,9 +21,11 @@ import static android.graphics.ImageFormat.YUV_444_888;
 
 public class QRCodeImageAnalyzer implements ImageAnalysis.Analyzer {
     private QRCodeFoundListener listener;
+    private MultiFormatReader multiFormatReader;
 
     public QRCodeImageAnalyzer(QRCodeFoundListener listener) {
         this.listener = listener;
+        this.multiFormatReader = new MultiFormatReader();
     }
 
     @Override
@@ -44,12 +46,13 @@ public class QRCodeImageAnalyzer implements ImageAnalysis.Analyzer {
             BinaryBitmap binaryBitmap = new BinaryBitmap(new HybridBinarizer(source));
 
             try {
-                Result result = new QRCodeMultiReader().decode(binaryBitmap);
+                Result result = multiFormatReader.decode(binaryBitmap);
                 listener.onQRCodeFound(result.getText());
-            } catch (FormatException | ChecksumException | NotFoundException e) {
+            } catch (NotFoundException e) {
                 listener.qrCodeNotFound();
             } finally {
                 image.close();
+                multiFormatReader.reset();
             }
         } else {
             image.close();

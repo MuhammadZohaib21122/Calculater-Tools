@@ -8,7 +8,6 @@ import androidx.camera.core.ImageAnalysis;
 import androidx.camera.core.Preview;
 import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.camera.view.PreviewView;
-import androidx.camera.view.PreviewView.ImplementationMode;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.LifecycleOwner;
@@ -22,8 +21,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.util.Size;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -40,10 +37,9 @@ public class QRCodeScanner extends AppCompatActivity {
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
 
     private ImageView qrCodeFoundButton;
-
     private String qrCode;
 
-    @SuppressLint({"MissingInflatedId", "WrongViewCast"})
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,23 +47,16 @@ public class QRCodeScanner extends AppCompatActivity {
 
         previewView = findViewById(R.id.activity_main_previewView);
 
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);  // hide mobile key button
-        // Set the status bar color
-        Window window = getWindow();
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryufgu));
-
-
         qrCodeFoundButton = findViewById(R.id.activity_main_qrCodeFoundButton);
         qrCodeFoundButton.setVisibility(View.INVISIBLE);
-
-
         qrCodeFoundButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), qrCode, Toast.LENGTH_SHORT).show();
-                Log.i(MainActivity.class.getSimpleName(), "QR Code Found: " + qrCode);
+                if (qrCode != null && !qrCode.isEmpty()) {
+                    handleQRCode(qrCode);
+                } else {
+                    Toast.makeText(getApplicationContext(), "No QR code detected", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -79,11 +68,7 @@ public class QRCodeScanner extends AppCompatActivity {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
             startCamera();
         } else {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
-                ActivityCompat.requestPermissions(QRCodeScanner.this, new String[]{Manifest.permission.CAMERA}, PERMISSION_REQUEST_CAMERA);
-            } else {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, PERMISSION_REQUEST_CAMERA);
-            }
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, PERMISSION_REQUEST_CAMERA);
         }
     }
 
@@ -111,7 +96,7 @@ public class QRCodeScanner extends AppCompatActivity {
     }
 
     private void bindCameraPreview(@NonNull ProcessCameraProvider cameraProvider) {
-        previewView.setImplementationMode(ImplementationMode.COMPATIBLE); // Use COMPATIBLE or TEXTURE_VIEW if SURFACE_VIEW is not available
+        previewView.setImplementationMode(PreviewView.ImplementationMode.COMPATIBLE);
 
         Preview preview = new Preview.Builder()
                 .build();
@@ -133,20 +118,37 @@ public class QRCodeScanner extends AppCompatActivity {
             public void onQRCodeFound(String _qrCode) {
                 qrCode = _qrCode;
                 qrCodeFoundButton.setVisibility(View.VISIBLE);
-                openURLInBrowser(qrCode);  // Open the QR code URL in the browser
+                handleQRCode(qrCode);
             }
 
             @Override
             public void qrCodeNotFound() {
-                qrCodeFoundButton.setVisibility(View.GONE);
+                qrCodeFoundButton.setVisibility(View.INVISIBLE);
             }
         }));
 
-        Camera camera = cameraProvider.bindToLifecycle((LifecycleOwner)this, cameraSelector, imageAnalysis, preview);
+        Camera camera = cameraProvider.bindToLifecycle((LifecycleOwner) this, cameraSelector, imageAnalysis, preview);
+    }
+
+    private void handleQRCode(String qrCode) {
+        if (qrCode.startsWith("http://") || qrCode.startsWith("https://")) {
+            // Open URL in browser
+            openURLInBrowser(qrCode);
+        } else if (qrCode.startsWith("MECARD:")) {
+            // Handle MECARD
+            Toast.makeText(this, "MECARD detected: " + qrCode, Toast.LENGTH_LONG).show();
+        } else {
+            // Handle other types of QR code data
+            Toast.makeText(this, "QR Code detected: " + qrCode, Toast.LENGTH_LONG).show();
+        }
     }
 
     private void openURLInBrowser(String url) {
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-        startActivity(browserIntent);
+        try {
+            startActivity(browserIntent);
+        } catch (Exception e) {
+            Toast.makeText(this, "Unable to open URL", Toast.LENGTH_SHORT).show();
+        }
     }
 }
