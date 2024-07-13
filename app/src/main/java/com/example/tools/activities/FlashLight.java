@@ -8,6 +8,7 @@ import android.hardware.camera2.CameraManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.tools.R;
 
@@ -21,7 +22,7 @@ public class FlashLight extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flash_light);
 
-        Button btnToggleFlash = findViewById(R.id.btnToggleFlash);
+        ImageView btnToggleFlash = findViewById(R.id.btnToggleFlash);
         cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
 
         try {

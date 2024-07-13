@@ -4,13 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/flashlight_background"
     tools:context=".activities.FlashLight">
 
-    <Button
-        android:id="@+id/btnToggleFlash"
-        android:layout_width="wrap_content"
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Toggle Flashlight"
-        android:layout_centerInParent="true"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="644dp"
+        android:text="Flash Light"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/btnToggleFlash"
+        android:layout_width="99dp"
+        android:layout_height="82dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="166dp"
+        android:layout_marginTop="554dp"
+        android:layout_marginEnd="146dp"
+        android:layout_marginBottom="95dp"
+        android:src="@drawable/torch_on" />
 
 </RelativeLayout>
