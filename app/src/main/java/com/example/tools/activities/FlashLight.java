@@ -7,7 +7,9 @@ import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.widget.Button;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.example.tools.R;
@@ -17,12 +19,21 @@ public class FlashLight extends AppCompatActivity {
     private boolean isFlashOn = false;
     private CameraManager cameraManager;
     private String cameraId;
+    private ImageView btnToggleFlash;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flash_light);
 
-        ImageView btnToggleFlash = findViewById(R.id.btnToggleFlash);
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);  // hide mobile key button
+        // Set the status bar color
+        Window window = getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
+
+        btnToggleFlash = findViewById(R.id.btnToggleFlash);
         cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
 
         try {
@@ -46,6 +57,7 @@ public class FlashLight extends AppCompatActivity {
                 cameraManager.setTorchMode(cameraId, true);
             }
             isFlashOn = true;
+            btnToggleFlash.setImageResource(R.drawable.torch_on);
         } catch (CameraAccessException e) {
             e.printStackTrace();
         }
@@ -57,6 +69,7 @@ public class FlashLight extends AppCompatActivity {
                 cameraManager.setTorchMode(cameraId, false);
             }
             isFlashOn = false;
+            btnToggleFlash.setImageResource(R.drawable.torch_off);
         } catch (CameraAccessException e) {
             e.printStackTrace();
         }

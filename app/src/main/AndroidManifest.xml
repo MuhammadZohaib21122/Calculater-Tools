@@ -19,8 +19,13 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <uses-feature android:name="android.hardware.camera.any" />
-    <uses-permission android:name="android.permission.FLASHLIGHT"/>
-    <uses-feature android:name="android.hardware.camera.flash" android:required="true"/>
+
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="true" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
 
@@ -36,6 +41,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tools"
         tools:targetApi="31">
+        <activity
+            android:name=".activities.CalenderActivity"
+            android:exported="false" />
         <activity
             android:name=".activities.FlashLight"
             android:exported="false" />
