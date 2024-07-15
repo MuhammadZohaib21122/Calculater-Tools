@@ -14,7 +14,7 @@ import com.example.tools.R;
 
 public class MainActivity extends AppCompatActivity {
     public static Intent serviceIntent;
-    TextView btnCalculater, btnStopWatch,btnQRScanner,btnBarCodeScanner,btnFlashLight;
+    TextView btnCalculater, btnStopWatch,btnQRScanner,btnBarCodeScanner,btnFlashLight,btnCalender;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +33,19 @@ public class MainActivity extends AppCompatActivity {
         btnQRScanner = findViewById(R.id.btnQRScanner);
         btnBarCodeScanner = findViewById(R.id.btnBarCodeScanner);
         btnFlashLight = findViewById(R.id.btnFlashLight);
+        btnCalender = findViewById(R.id.btnCalender);
 
         btnQRScanner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, QRCodeScanner.class);
+                startActivity(intent);
+            }
+        });
+        btnCalender.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CalenderActivity.class);
                 startActivity(intent);
             }
         });

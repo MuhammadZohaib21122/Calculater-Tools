@@ -4,38 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/flashlight_background"
+    android:background="@color/colorPrimaryDark"
     tools:context=".activities.FlashLight">
 
-    <TextView
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
+        android:layout_height="210dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/flash_light12423"
+        />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="234dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="644dp"
-        android:text="Flash Light"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="50sp"
-        android:textStyle="bold" />
+        android:layout_marginBottom="2dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/flash12" />
 
     <ImageView
         android:id="@+id/btnToggleFlash"
-        android:layout_width="99dp"
-        android:layout_height="82dp"
+        android:layout_width="168dp"
+        android:layout_height="147dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="166dp"
-        android:layout_marginTop="554dp"
-        android:layout_marginEnd="146dp"
-        android:layout_marginBottom="95dp"
-        android:src="@drawable/torch_on" />
+        android:layout_marginStart="118dp"
+        android:layout_marginTop="294dp"
+        android:layout_marginEnd="125dp"
+        android:layout_marginBottom="290dp"
+        android:src="@drawable/torch_off" />
 
 </RelativeLayout>

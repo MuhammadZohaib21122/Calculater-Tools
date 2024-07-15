@@ -40,4 +40,18 @@
 
     <color name="bga_pp_colorPrimary">@android:color/black</color>
 
+
+
+    <color name="month1">#FFC0CB</color> <!-- January -->
+    <color name="month2">#FF69B4</color> <!-- February -->
+    <color name="month3">#FF1493</color> <!-- March -->
+    <color name="month4">#DB7093</color> <!-- April -->
+    <color name="month5">#FF6347</color> <!-- May -->
+    <color name="month6">#FF4500</color> <!-- June -->
+    <color name="month7">#FFD700</color> <!-- July -->
+    <color name="month8">#FFA500</color> <!-- August -->
+    <color name="month9">#FF8C00</color> <!-- September -->
+    <color name="month10">#FF7F50</color> <!-- October -->
+    <color name="month11">#FF6A6A</color> <!-- November -->
+    <color name="month12">#FF00FF</color> <!-- December -->
 </resources>
