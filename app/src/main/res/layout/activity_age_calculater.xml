@@ -13,7 +13,7 @@
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="572dp"
+        android:layout_height="599dp"
         android:layout_marginTop="50dp"
         android:scrollbars="vertical">
 
@@ -43,9 +43,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Today's Date"
-                        android:textSize="23sp"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#45c3ff" />
+                        android:textColor="#45c3ff"
+                        android:textSize="23sp" />
 
                     <TextView
                         android:id="@+id/textViewCurrentDay"
@@ -151,9 +151,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Date Of Birth"
-                        android:textSize="23sp"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#45c3ff" />
+                        android:textColor="#45c3ff"
+                        android:textSize="23sp" />
                 </RelativeLayout>
 
                 <FrameLayout
@@ -258,9 +258,9 @@
                         android:paddingTop="7dp"
                         android:paddingBottom="7dp"
                         android:text="Calculate"
-                        android:textSize="23sp"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#ffffff" />
+                        android:textColor="#ffffff"
+                        android:textSize="23sp" />
 
                     <View
                         android:id="@+id/view1"
@@ -278,9 +278,9 @@
                         android:paddingTop="7dp"
                         android:paddingBottom="7dp"
                         android:text="Clear"
-                        android:textSize="23sp"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#ffffff" />
+                        android:textColor="#ffffff"
+                        android:textSize="23sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -303,10 +303,10 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="1dp"
                             android:text="Age"
-                            android:textStyle="bold"
-                            android:textSize="23sp"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                            android:textColor="#00ffbb" />
+                            android:textColor="#00ffbb"
+                            android:textSize="23sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/tvTotalDays"
@@ -419,10 +419,10 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="1dp"
                             android:text="Next Birthday"
-                            android:textSize="23sp"
-                            android:textStyle="bold"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                            android:textColor="#00ffbb" />
+                            android:textColor="#00ffbb"
+                            android:textSize="23sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/tvBirthDay"
