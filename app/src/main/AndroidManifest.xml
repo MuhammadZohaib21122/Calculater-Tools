@@ -10,6 +10,9 @@
         android:largeScreens="true"
         android:xlargeScreens="true" />
 
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
@@ -42,28 +45,10 @@
         android:theme="@style/Theme.Tools"
         tools:targetApi="31">
         <activity
-            android:name=".activities.List_Activity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.SoundRecorderActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.PlayerActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.RecordingActivity"
-            android:exported="false" />
-        <activity
             android:name=".activities.SoundRecorder"
             android:exported="false" />
         <activity
             android:name=".activities.AgeCalculator"
-            android:exported="false" />
-        <activity
-            android:name=".activities.AboutActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.AgeCalculater"
             android:exported="false" />
         <activity
             android:name=".activities.CalenderActivity"
