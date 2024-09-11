@@ -41,17 +41,28 @@
     <color name="bga_pp_colorPrimary">@android:color/black</color>
 
 
+    <color name="baackground">#FFFFFF</color>
+    <color name="textcolor">#000000</color>
 
-    <color name="month1">#FFC0CB</color> <!-- January -->
-    <color name="month2">#FF69B4</color> <!-- February -->
-    <color name="month3">#FF1493</color> <!-- March -->
-    <color name="month4">#DB7093</color> <!-- April -->
-    <color name="month5">#FF6347</color> <!-- May -->
-    <color name="month6">#FF4500</color> <!-- June -->
-    <color name="month7">#FFD700</color> <!-- July -->
-    <color name="month8">#FFA500</color> <!-- August -->
-    <color name="month9">#FF8C00</color> <!-- September -->
-    <color name="month10">#FF7F50</color> <!-- October -->
-    <color name="month11">#FF6A6A</color> <!-- November -->
-    <color name="month12">#FF00FF</color> <!-- December -->
+    //BTN RECORD STOP COLOR------------------------------------------------------------------------------
+    <color name="STROKE_BTN">#CF0600</color>
+    <color name="SOLID_BTN">#FFFFFF</color>
+
+<!--    <color name="month1">#FFC0CB</color> &lt;!&ndash; January &ndash;&gt;-->
+<!--    <color name="month2">#FF69B4</color> &lt;!&ndash; February &ndash;&gt;-->
+<!--    <color name="month3">#FF1493</color> &lt;!&ndash; March &ndash;&gt;-->
+<!--    <color name="month4">#DB7093</color> &lt;!&ndash; April &ndash;&gt;-->
+<!--    <color name="month5">#FF6347</color> &lt;!&ndash; May &ndash;&gt;-->
+<!--    <color name="month6">#FF4500</color> &lt;!&ndash; June &ndash;&gt;-->
+<!--    <color name="month7">#FFD700</color> &lt;!&ndash; July &ndash;&gt;-->
+<!--    <color name="month8">#FFA500</color> &lt;!&ndash; August &ndash;&gt;-->
+<!--    <color name="month9">#FF8C00</color> &lt;!&ndash; September &ndash;&gt;-->
+<!--    <color name="month10">#FF7F50</color> &lt;!&ndash; October &ndash;&gt;-->
+<!--    <color name="month11">#FF6A6A</color> &lt;!&ndash; November &ndash;&gt;-->
+<!--    <color name="month12">#FF00FF</color> &lt;!&ndash; December &ndash;&gt;-->
+<!--    -->
+    <color name="colorPrimarySR">#D31E7E</color>
+    <color name="colorPrimaryDarkSR">#68043B</color>
+    <color name="colorAccentSR">#D81B60</color>
+<color name="tab_strip">#B42929</color>
 </resources>
